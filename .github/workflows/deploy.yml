@@ -1,0 +1,47 @@
+name: Deploy Airflow to Azure
+
+on:
+  push:
+    branches:
+      - main   # كل مرة تدفعي على main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣ سحب الكود
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2️⃣ تسجيل الدخول على Azure
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # 3️⃣ تسجيل الدخول على ACR
+    - name: ACR Login
+      uses: azure/docker-login@v1
+      with:
+        login-server: acrsentiment.azurecr.io
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    # 4️⃣ بناء Docker image
+    - name: Build Docker image
+      run: |
+        docker build -t acrsentiment.azurecr.io/airflow:latest .
+
+    # 5️⃣ رفع الصورة إلى ACR
+    - name: Push Docker image
+      run: |
+        docker push acrsentiment.azurecr.io/airflow:latest
+
+    # 6️⃣ تحديث Azure Container App
+    - name: Deploy to Container App
+      run: |
+        az containerapp update \
+          --name airflow-containerapp \
+          --resource-group resource_gro_pro \
+          --image acrsentiment.azurecr.io/airflow:latest
