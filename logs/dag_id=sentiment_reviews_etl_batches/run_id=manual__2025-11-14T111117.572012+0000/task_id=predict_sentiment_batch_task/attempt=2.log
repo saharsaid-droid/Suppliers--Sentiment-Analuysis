@@ -1,0 +1,11 @@
+[2025-11-14T11:24:11.112+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-14T11:24:11.135+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:11:17.572012+00:00 [queued]>
+[2025-11-14T11:24:11.148+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:11:17.572012+00:00 [queued]>
+[2025-11-14T11:24:11.150+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 2
+[2025-11-14T11:24:11.169+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): predict_sentiment_batch_task> on 2025-11-14 11:11:17.572012+00:00
+[2025-11-14T11:24:11.183+0000] {standard_task_runner.py:72} INFO - Started process 377 to run task
+[2025-11-14T11:24:11.192+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sentiment_reviews_etl_batches', 'predict_sentiment_batch_task', 'manual__2025-11-14T11:11:17.572012+00:00', '--job-id', '156', '--raw', '--subdir', 'DAGS_FOLDER/sentiment_review_pipeline_dag.py', '--cfg-path', '/tmp/tmpr3s0cbmf']
+[2025-11-14T11:24:11.200+0000] {standard_task_runner.py:105} INFO - Job 156: Subtask predict_sentiment_batch_task
+[2025-11-14T11:24:11.274+0000] {task_command.py:467} INFO - Running <TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:11:17.572012+00:00 [running]> on host 0ca8f4f5d6af
+[2025-11-14T11:24:11.379+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment_reviews_etl_batches' AIRFLOW_CTX_TASK_ID='predict_sentiment_batch_task' AIRFLOW_CTX_EXECUTION_DATE='2025-11-14T11:11:17.572012+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-14T11:11:17.572012+00:00'
+[2025-11-14T11:24:11.382+0000] {taskinstance.py:731} INFO - ::endgroup::

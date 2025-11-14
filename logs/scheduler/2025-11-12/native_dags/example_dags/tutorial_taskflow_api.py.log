@@ -1,0 +1,29 @@
+[2025-11-12T02:50:57.068+0000] {processor.py:186} INFO - Started process (PID=91) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:50:57.069+0000] {processor.py:914} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py for tasks to queue
+[2025-11-12T02:50:57.073+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.073+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:50:57.086+0000] {processor.py:925} INFO - DAG(s) 'tutorial_taskflow_api' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:50:57.244+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.243+0000] {override.py:1900} INFO - Created Permission View: can read on DAG:tutorial_taskflow_api
+[2025-11-12T02:50:57.261+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.260+0000] {override.py:1900} INFO - Created Permission View: can edit on DAG:tutorial_taskflow_api
+[2025-11-12T02:50:57.273+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.272+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG:tutorial_taskflow_api
+[2025-11-12T02:50:57.290+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.289+0000] {override.py:1900} INFO - Created Permission View: can read on DAG Run:tutorial_taskflow_api
+[2025-11-12T02:50:57.302+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.301+0000] {override.py:1900} INFO - Created Permission View: menu access on DAG Run:tutorial_taskflow_api
+[2025-11-12T02:50:57.314+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.313+0000] {override.py:1900} INFO - Created Permission View: can create on DAG Run:tutorial_taskflow_api
+[2025-11-12T02:50:57.325+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.324+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG Run:tutorial_taskflow_api
+[2025-11-12T02:50:57.326+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.325+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T02:50:57.348+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.347+0000] {dag.py:3262} INFO - Creating ORM DAG for tutorial_taskflow_api
+[2025-11-12T02:50:57.350+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:50:57.349+0000] {dag.py:4180} INFO - Setting next_dagrun for tutorial_taskflow_api to None, run_after=None
+[2025-11-12T02:50:57.379+0000] {processor.py:208} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py took 0.319 seconds
+[2025-11-12T02:51:28.121+0000] {processor.py:186} INFO - Started process (PID=153) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:28.123+0000] {processor.py:914} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py for tasks to queue
+[2025-11-12T02:51:28.128+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:28.128+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:28.147+0000] {processor.py:925} INFO - DAG(s) 'tutorial_taskflow_api' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:28.192+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:28.192+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T02:51:28.227+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:28.227+0000] {dag.py:4180} INFO - Setting next_dagrun for tutorial_taskflow_api to None, run_after=None
+[2025-11-12T02:51:28.263+0000] {processor.py:208} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py took 0.152 seconds
+[2025-11-12T02:51:58.593+0000] {processor.py:186} INFO - Started process (PID=215) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:58.595+0000] {processor.py:914} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py for tasks to queue
+[2025-11-12T02:51:58.599+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:58.599+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:58.616+0000] {processor.py:925} INFO - DAG(s) 'tutorial_taskflow_api' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py
+[2025-11-12T02:51:58.653+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:58.653+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T02:51:58.673+0000] {logging_mixin.py:190} INFO - [2025-11-12T02:51:58.673+0000] {dag.py:4180} INFO - Setting next_dagrun for tutorial_taskflow_api to None, run_after=None
+[2025-11-12T02:51:58.700+0000] {processor.py:208} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/tutorial_taskflow_api.py took 0.119 seconds

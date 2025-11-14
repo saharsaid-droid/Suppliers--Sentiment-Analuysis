@@ -1,0 +1,49 @@
+[2025-11-14T09:34:48.889+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-14T09:34:48.909+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.extract_data_task manual__2025-11-14T09:34:44.355660+00:00 [queued]>
+[2025-11-14T09:34:48.920+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.extract_data_task manual__2025-11-14T09:34:44.355660+00:00 [queued]>
+[2025-11-14T09:34:48.921+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-11-14T09:34:48.940+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): extract_data_task> on 2025-11-14 09:34:44.355660+00:00
+[2025-11-14T09:34:48.953+0000] {standard_task_runner.py:72} INFO - Started process 728 to run task
+[2025-11-14T09:34:48.961+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sentiment_reviews_etl_batches', 'extract_data_task', 'manual__2025-11-14T09:34:44.355660+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/sentiment_review_pipeline_dag.py', '--cfg-path', '/tmp/tmp41gneg2u']
+[2025-11-14T09:34:48.968+0000] {standard_task_runner.py:105} INFO - Job 88: Subtask extract_data_task
+[2025-11-14T09:34:49.037+0000] {task_command.py:467} INFO - Running <TaskInstance: sentiment_reviews_etl_batches.extract_data_task manual__2025-11-14T09:34:44.355660+00:00 [running]> on host 76ee26759cb5
+[2025-11-14T09:34:49.124+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment_reviews_etl_batches' AIRFLOW_CTX_TASK_ID='extract_data_task' AIRFLOW_CTX_EXECUTION_DATE='2025-11-14T09:34:44.355660+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-14T09:34:44.355660+00:00'
+[2025-11-14T09:34:49.127+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-14T09:34:49.146+0000] {logging_mixin.py:190} INFO - Extracting data...
+[2025-11-14T09:34:49.263+0000] {log.py:232} WARNING - 2025-11-14 09:34:49 | INFO | extract_data | Batch 1 saved to /opt/***/project/output/temp_batches/batch_1.csv
+[2025-11-14T09:34:49.262+0000] {extract_data.py:35} INFO - Batch 1 saved to /opt/***/project/output/temp_batches/batch_1.csv
+[2025-11-14T09:34:49.332+0000] {logging_mixin.py:190} INFO - Extracted 500 rows.
+[2025-11-14T09:34:49.334+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-14T09:34:49.344+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-14T09:34:49.346+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=sentiment_reviews_etl_batches, task_id=extract_data_task, run_id=manual__2025-11-14T09:34:44.355660+00:00, execution_date=20251114T093444, start_date=20251114T093448, end_date=20251114T093449
+[2025-11-14T09:34:49.347+0000] {taskinstance.py:1563} INFO - Executing callback at index 0: notify_success
+[2025-11-14T09:34:49.364+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/utils/email.py:155: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2025-11-14T09:34:49.365+0000] {configuration.py:1058} WARNING - section/key [smtp/smtp_user] not found in config
+[2025-11-14T09:34:49.366+0000] {email.py:272} INFO - Email alerting: attempt 1
+[2025-11-14T09:34:49.368+0000] {taskinstance.py:1567} ERROR - Error in callback at index 0: notify_success
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1565, in _run_finished_callback
+    callback(context)
+  File "/opt/airflow/dags/sentiment_review_pipeline_dag.py", line 62, in notify_success
+    send_email_smtp(to=config.get("email_to", []), subject=subject, html_content=body)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/email.py", line 155, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/email.py", line 274, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/email.py", line 318, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.10/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.10/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.10/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/usr/local/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2025-11-14T09:34:49.416+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-14T09:34:49.432+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

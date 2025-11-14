@@ -1,0 +1,32 @@
+
+# ---------- Batch settings ----------
+batch:
+  batch_number: 1
+  batch_size: 500
+
+# ---------- Database settings ----------
+db:
+  host: host.docker.internal
+  user: root
+  password: sahar_12
+  database: sentiment_analysis_db
+
+# ---------- File paths ----------
+paths:
+  raw_data_dir: /opt/airflow/project/Data/raw
+  temp_batches_dir: /opt/airflow/project/output/temp_batches
+  clean_batches_dir: /opt/airflow/project/output/clean_batches
+  predict_batches_dir: /opt/airflow/project/output/predict_batches
+  model_dir: /opt/airflow/project/model/marbert_model
+  tokenizer_dir: /opt/airflow/project/model/tokenizer
+
+
+
+# ---------- Alert / Email settings ----------
+alert_threshold: 20
+
+email_settings:
+  email: sahar2132005@gmail.com
+  email_password: hqogulqyjyabrhbg
+  email_to:
+  - 01278225377saharsaid@gmail.com

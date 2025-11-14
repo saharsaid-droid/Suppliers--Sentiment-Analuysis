@@ -1,0 +1,12 @@
+[2025-11-14T11:33:01.813+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-14T11:33:01.835+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:26:14.345616+00:00 [queued]>
+[2025-11-14T11:33:01.847+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:26:14.345616+00:00 [queued]>
+[2025-11-14T11:33:01.849+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 2
+[2025-11-14T11:33:01.867+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): predict_sentiment_batch_task> on 2025-11-14 11:26:14.345616+00:00
+[2025-11-14T11:33:01.878+0000] {standard_task_runner.py:72} INFO - Started process 205 to run task
+[2025-11-14T11:33:01.885+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sentiment_reviews_etl_batches', 'predict_sentiment_batch_task', 'manual__2025-11-14T11:26:14.345616+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/sentiment_review_pipeline_dag.py', '--cfg-path', '/tmp/tmpex7biy8o']
+[2025-11-14T11:33:01.892+0000] {standard_task_runner.py:105} INFO - Job 165: Subtask predict_sentiment_batch_task
+[2025-11-14T11:33:01.967+0000] {task_command.py:467} INFO - Running <TaskInstance: sentiment_reviews_etl_batches.predict_sentiment_batch_task manual__2025-11-14T11:26:14.345616+00:00 [running]> on host ebf9f114f200
+[2025-11-14T11:33:02.254+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment_reviews_etl_batches' AIRFLOW_CTX_TASK_ID='predict_sentiment_batch_task' AIRFLOW_CTX_EXECUTION_DATE='2025-11-14T11:26:14.345616+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-14T11:26:14.345616+00:00'
+[2025-11-14T11:33:02.258+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-14T11:33:07.525+0000] {log.py:232} WARNING - Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.

@@ -1,0 +1,8 @@
+pandas==1.5.3
+regex==2023.10.3
+numpy==1.24.3
+mysql-connector-python==8.1.0
+pyyaml==6.0.1
+torch==2.0.1
+transformers==4.30.2
+

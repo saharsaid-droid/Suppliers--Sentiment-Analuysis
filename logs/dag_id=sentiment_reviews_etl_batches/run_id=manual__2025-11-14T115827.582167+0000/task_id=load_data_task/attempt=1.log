@@ -1,0 +1,126 @@
+[2025-11-14T12:00:30.618+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-14T12:00:30.649+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.load_data_task manual__2025-11-14T11:58:27.582167+00:00 [queued]>
+[2025-11-14T12:00:30.662+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment_reviews_etl_batches.load_data_task manual__2025-11-14T11:58:27.582167+00:00 [queued]>
+[2025-11-14T12:00:30.664+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-11-14T12:00:30.690+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): load_data_task> on 2025-11-14 11:58:27.582167+00:00
+[2025-11-14T12:00:30.713+0000] {standard_task_runner.py:72} INFO - Started process 494 to run task
+[2025-11-14T12:00:30.724+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sentiment_reviews_etl_batches', 'load_data_task', 'manual__2025-11-14T11:58:27.582167+00:00', '--job-id', '183', '--raw', '--subdir', 'DAGS_FOLDER/sentiment_review_pipeline_dag.py', '--cfg-path', '/tmp/tmpx6qpdywx']
+[2025-11-14T12:00:30.732+0000] {standard_task_runner.py:105} INFO - Job 183: Subtask load_data_task
+[2025-11-14T12:00:30.826+0000] {task_command.py:467} INFO - Running <TaskInstance: sentiment_reviews_etl_batches.load_data_task manual__2025-11-14T11:58:27.582167+00:00 [running]> on host 8d452abf73f2
+[2025-11-14T12:00:30.959+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment_reviews_etl_batches' AIRFLOW_CTX_TASK_ID='load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2025-11-14T11:58:27.582167+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-14T11:58:27.582167+00:00'
+[2025-11-14T12:00:30.961+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-14T12:00:31.124+0000] {log.py:232} WARNING - 2025-11-14 12:00:31 | INFO | load_batch_to_db | Connected to DB
+[2025-11-14T12:00:31.123+0000] {load_data.py:25} INFO - Connected to DB
+[2025-11-14T12:00:31.150+0000] {log.py:232} WARNING - 2025-11-14 12:00:31 | ERROR | load_batch_to_db | Error loading batch: "Column(s) ['sentiment'] do not exist"
+Traceback (most recent call last):
+  File "/opt/***/project/scripts/load_data.py", line 29, in load_batch_to_db
+    df_batch.groupby(["governorate", "district"])
+  File "/home/***/.local/lib/python3.10/site-packages/pandas/core/groupby/generic.py", line 895, in aggregate
+    result = op.agg()
+  File "/home/***/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 172, in agg
+    return self.agg_dict_like()
+  File "/home/***/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 496, in agg_dict_like
+    arg = self.normalize_dictlike_arg("agg", selected_obj, arg)
+  File "/home/***/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 619, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {cols_sorted} do not exist")
+KeyError: "Column(s) ['sentiment'] do not exist"
+[2025-11-14T12:00:31.144+0000] {load_data.py:151} ERROR - Error loading batch: "Column(s) ['sentiment'] do not exist"
+Traceback (most recent call last):
+  File "/opt/airflow/project/scripts/load_data.py", line 29, in load_batch_to_db
+    df_batch.groupby(["governorate", "district"])
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/generic.py", line 895, in aggregate
+    result = op.agg()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 172, in agg
+    return self.agg_dict_like()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 496, in agg_dict_like
+    arg = self.normalize_dictlike_arg("agg", selected_obj, arg)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 619, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {cols_sorted} do not exist")
+KeyError: "Column(s) ['sentiment'] do not exist"
+[2025-11-14T12:00:31.159+0000] {log.py:232} WARNING - 2025-11-14 12:00:31 | INFO | load_batch_to_db | DB connection closed
+[2025-11-14T12:00:31.158+0000] {load_data.py:159} INFO - DB connection closed
+[2025-11-14T12:00:31.163+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/dags/sentiment_review_pipeline_dag.py", line 172, in load_task
+    load_batch_to_db(df, db_conf=db_conf, threshold=threshold)
+  File "/opt/airflow/project/scripts/load_data.py", line 29, in load_batch_to_db
+    df_batch.groupby(["governorate", "district"])
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/generic.py", line 895, in aggregate
+    result = op.agg()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 172, in agg
+    return self.agg_dict_like()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 496, in agg_dict_like
+    arg = self.normalize_dictlike_arg("agg", selected_obj, arg)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 619, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {cols_sorted} do not exist")
+KeyError: "Column(s) ['sentiment'] do not exist"
+[2025-11-14T12:00:31.194+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=sentiment_reviews_etl_batches, task_id=load_data_task, run_id=manual__2025-11-14T11:58:27.582167+00:00, execution_date=20251114T115827, start_date=20251114T120030, end_date=20251114T120031
+[2025-11-14T12:00:31.226+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-14T12:00:31.231+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 183 for task load_data_task ("Column(s) ['sentiment'] do not exist"; 494)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/dags/sentiment_review_pipeline_dag.py", line 172, in load_task
+    load_batch_to_db(df, db_conf=db_conf, threshold=threshold)
+  File "/opt/airflow/project/scripts/load_data.py", line 29, in load_batch_to_db
+    df_batch.groupby(["governorate", "district"])
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/groupby/generic.py", line 895, in aggregate
+    result = op.agg()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 172, in agg
+    return self.agg_dict_like()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 496, in agg_dict_like
+    arg = self.normalize_dictlike_arg("agg", selected_obj, arg)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/apply.py", line 619, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {cols_sorted} do not exist")
+KeyError: "Column(s) ['sentiment'] do not exist"
+[2025-11-14T12:00:31.303+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-14T12:00:31.364+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-14T12:00:31.370+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
