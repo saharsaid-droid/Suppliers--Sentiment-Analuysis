@@ -3,7 +3,7 @@ FROM apache/airflow:2.10.2-python3.10
 
 # اضبط مسار العمل
 WORKDIR /opt/airflow
-
+ENV PATH="/home/airflow/.local/bin:${PATH}"
 # فتح البورت للويب سيرفر
 ENV PORT=8080
 EXPOSE 8080
