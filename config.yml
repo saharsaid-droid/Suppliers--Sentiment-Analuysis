@@ -1,0 +1,3 @@
+model:
+  blob_url: "https://storageaccountpro1.blob.core.windows.net/models/my_sentiment_model.tar.gz"
+  file_name: "my_sentiment_model.tar.gz"
