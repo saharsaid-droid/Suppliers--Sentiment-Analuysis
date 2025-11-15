@@ -1,5 +1,6 @@
 FROM apache/airflow:2.10.2-python3.10
 
+ENV PORT=8080
 WORKDIR /opt/airflow
 COPY requirements.txt .
 
