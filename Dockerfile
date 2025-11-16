@@ -1,28 +1,20 @@
-# استخدم الصورة الرسمية
+# 1. اختيار الصورة الأساسية
 FROM apache/airflow:2.10.2-python3.10
 
-# اضبط مسار العمل
-WORKDIR /opt/airflow
-ENV PATH="/home/airflow/.local/bin:${PATH}"
-# فتح البورت للويب سيرفر
-ENV PORT=8080
+# 2. تثبيت المكتبات الإضافية
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
+
+# 3. نسخ ملفات المشروع إلى داخل الحاوية
+COPY dags/ ${AIRFLOW_HOME}/dags/
+COPY plugins/ ${AIRFLOW_HOME}/plugins/
+COPY scripts/ ${AIRFLOW_HOME}/scripts/
+COPY Data/ ${AIRFLOW_HOME}/project/Data/
+COPY model/ ${AIRFLOW_HOME}/project/model/
+COPY output/ ${AIRFLOW_HOME}/project/output/
+
+# 4. إعطاء صلاحيات التنفيذ (اختياري)
+RUN if [ -d "${AIRFLOW_HOME}/scripts" ]; then chmod +x ${AIRFLOW_HOME}/scripts/*.sh || true; fi
+
+# 5. فتح المنفذ (Port)
 EXPOSE 8080
-
-# نسخ ملفات المتطلبات
-COPY requirements.txt .
-
-# تثبيت الباكيجات
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-# نسخ DAGs و Scripts
-COPY dags/ /opt/airflow/dags/
-COPY scripts/ /opt/airflow/scripts/
-
-# تأكد أن السكريبتات قابلة للتنفيذ
-RUN chmod +x /opt/airflow/scripts/*.sh
-
-# CMD لتشغيل Airflow
-# Webserver في الخلفية & Scheduler foreground
-CMD ["bash", "-c", "airflow webserver --port 8080 & exec airflow scheduler"]
-
