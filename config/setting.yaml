@@ -30,3 +30,9 @@ email_settings:
   email_password: hqogulqyjyabrhbg
   email_to:
   - 01278225377saharsaid@gmail.com
+
+
+
+azure_blob:
+  container_name: "model"
+  model_tar_name: "my_sentiment_model.tar.gz"

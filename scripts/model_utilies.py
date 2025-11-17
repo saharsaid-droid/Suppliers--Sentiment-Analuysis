@@ -37,7 +37,6 @@ def get_output_dir(output_dir=None, yaml_path=None):
 def predict_sentiment_batch(
     df: pd.DataFrame,
     model_dir: str,
-    tokenizer_dir: str,
     batch_number: int,
     output_dir: str = None,
     yaml_path: str = None,
@@ -67,7 +66,7 @@ def predict_sentiment_batch(
 
     try:
         # Load tokenizer and model
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_dir)
+        tokenizer = AutoTokenizer.from_pretrained(model_dir)
         model = AutoModelForSequenceClassification.from_pretrained(model_dir)
 
         df = df.dropna(subset=[text_column])
